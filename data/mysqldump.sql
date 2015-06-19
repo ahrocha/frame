@@ -29,7 +29,7 @@ CREATE TABLE `alunos` (
   `senha` varchar(15) DEFAULT NULL,
   `turma_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`aluno_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `alunos` (
 
 LOCK TABLES `alunos` WRITE;
 /*!40000 ALTER TABLE `alunos` DISABLE KEYS */;
+INSERT INTO `alunos` VALUES (1,'Gabriel Pimenta','gabriel@4linux.com.br','123',1);
 /*!40000 ALTER TABLE `alunos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,7 +53,7 @@ CREATE TABLE `periodos` (
   `periodo_id` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`periodo_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,6 +62,7 @@ CREATE TABLE `periodos` (
 
 LOCK TABLES `periodos` WRITE;
 /*!40000 ALTER TABLE `periodos` DISABLE KEYS */;
+INSERT INTO `periodos` VALUES (1,'noturno'),(2,'diurno'),(3,'matutino');
 /*!40000 ALTER TABLE `periodos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,7 +80,7 @@ CREATE TABLE `professores` (
   `senha` varchar(15) DEFAULT NULL,
   `turma_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`prof_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,6 +89,7 @@ CREATE TABLE `professores` (
 
 LOCK TABLES `professores` WRITE;
 /*!40000 ALTER TABLE `professores` DISABLE KEYS */;
+INSERT INTO `professores` VALUES (1,'Professor Zidane','zizu@escola.com.br','123',1);
 /*!40000 ALTER TABLE `professores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,7 +106,7 @@ CREATE TABLE `turmas` (
   `serie` varchar(3) DEFAULT NULL,
   `periodo` int(11) DEFAULT NULL,
   PRIMARY KEY (`turma_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,6 +115,7 @@ CREATE TABLE `turmas` (
 
 LOCK TABLES `turmas` WRITE;
 /*!40000 ALTER TABLE `turmas` DISABLE KEYS */;
+INSERT INTO `turmas` VALUES (1,20,'5A',3);
 /*!40000 ALTER TABLE `turmas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -124,4 +128,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-06-19 19:08:59
+-- Dump completed on 2015-06-19 19:16:55
