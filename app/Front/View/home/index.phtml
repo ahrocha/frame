@@ -20,10 +20,14 @@
                     <td>Email</td>
                     <td>Ações</td>
                 </tr>
+                <?php
+                 
+                foreach($dados['alunos'] as $aluno):
+                ?>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><?= $aluno->getAluno_id() ?></td>
+                        <td><?= $aluno->getNome() ?></td>
+                        <td><?= $aluno->getEmail() ?></td>
                         <td>
                             <a href="alterar.php?id=">
                                 Alterar
@@ -35,6 +39,9 @@
                             </a>
                         </td>
                     </tr>
+                <?php
+                    endforeach; 
+                ?>
             </table>
         </form>
     </body>
