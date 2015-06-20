@@ -27,10 +27,6 @@ class App
             }
         }
         
-        if(is_object($this->controller)){
-            $this->controller->$method($_GET);
-        } else {
-            View::error();
-        }
+        $this->controller->$method($_GET);
     }
 }

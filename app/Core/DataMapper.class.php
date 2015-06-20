@@ -75,14 +75,21 @@ class DataMapper
 	{
 	    foreach($objeto->getValues() as $campo => $valor){
 	        $campos [] = "$campo=?";
-	        $valores []= $valores;
+	        $valores []= $valor;
 	    }
 	    
 	    $campos = implode(',', $campos);
 	    
 	    $sql = "UPDATE $objeto SET $campos WHERE $onde";
-	    
+echo $sql;	    
 	    return $this->conexao->prepare($sql)->execute($valores);
+	}
+	
+	public function delete($objeto, $onde)
+	{
+	    $sql = "DELETE FROM $objeto WHERE $onde";
+echo $sql;	    
+	    return $this->conexao->exec($sql);
 	}
 }
 

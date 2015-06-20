@@ -5,6 +5,7 @@ namespace Core;
 abstract class AbstractModel
 {
     protected $datamapper;
+    protected $campoId;
 
     public function __construct()
     {
@@ -86,12 +87,21 @@ abstract class AbstractModel
     public function save($post)
     {
         $this->campos = $post;
-         
-        if(!isset($this->campos['id'])){
+        if(!isset($this->campos[$this->campoId])){
+        	echo '<h3>INSERT</h3>';
             return $this->datamapper->insert($this);
         } else {
-            $this->datamapper->update($this, "id={$this->getId()}");
+        	echo '<h3>UPDATE</h3>';
+        	$this->datamapper->update($this, $this->campoId."=".$post[$this->campoId]);
         }
+    }
+
+    public function delete($onde)
+    {
+
+
+        	$this->datamapper->delete($this, $onde );
+
     }
 
     public function listarUm($onde)

@@ -1,41 +1,23 @@
-<html>
-    <body>
-        <form action="" method="post">
-            <table border='1'>
-                <tr>
-                    <td>Buscar:</td>
-                    <td colspan="3">
-                        <input name="busca">
-                        <input type="submit" value="Buscar">
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4">
-                        <a href="inserir.php">NOVO+</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>#</td>
-                    <td>Nome</td>
-                    <td>Email</td>
-                    <td>Ações</td>
-                </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <a href="alterar.php?controller=professor&method=alterar&id=">
-                                Alterar
-                            </a>
-                        </td>
-                        <td>
-                            <a href="excluir.php?id=">
-                                Excluir
-                            </a>
-                        </td>
-                    </tr>
-            </table>
-        </form>
-    </body>
-</html>
+
+        <h2>Professores da escola</h2>
+        <a href="?controller=professor&method=insert">novo</a>
+        <table>
+        <?php
+foreach ($dados as $professor):
+	?>
+
+	<tr>
+		<td><?php echo $professor->campos['nome'];?></td>
+		<td><?php echo $professor->campos['email'];?></td>
+		<td><?php echo $professor->campos['turma_id'];?></td>
+		<td>
+			<a href="?controller=professor&method=edit&prof_id=<?php echo $professor->campos['prof_id'];?>">editar</a>
+			<a href="?controller=professor&method=delete&prof_id=<?php echo $professor->campos['prof_id'];?>">excluir</a>
+		</td>
+	</tr>
+
+	<?php
+	
+endforeach;
+        ?>
+</table>
